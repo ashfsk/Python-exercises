@@ -1,0 +1,23 @@
+##Given two strings, it will determine how many minimum swaps are needed to convert string1 to string2##
+
+import sys
+s1=raw_input("Enter string1:")
+s2=raw_input("Enter string2:")
+c=0
+n=list(s1)
+for i in s1:
+  if s1.count(i)!=s2.count(i):
+      sys.exit()
+for i in range(0, len(s1)):
+  if n[i]==s2[i]:
+    pass
+  else:
+   for k in range(i, len(s1)):
+    if n[k]==s2[i]:
+      temp=n[i]
+      n[i]=s2[i]
+      n[k]=temp
+      c+=1
+      break
+print c
+print ''.join(n)
