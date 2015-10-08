@@ -1,0 +1,24 @@
+##Input a string of numbers, eg:5893. Output will be 5<8<9>3
+
+s=raw_input('Enter the string:')
+
+def equality(s):
+  old=None
+  r=[]
+  for c in s:
+    if old:
+      if int(old) < int (c):
+        r.append('<')
+      elif int(old) > int(c):
+        r.append('>')
+      else:
+        r.append('=')
+      r.append(c)
+      old=c
+    else:
+      r.append(c)
+      old=c
+  return ''.join(r)
+
+r=equality(s)
+print r
